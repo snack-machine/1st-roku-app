@@ -2,6 +2,7 @@
 <component name="MainPage" extends="Group">
   <script type="text/brightscript" uri="MainPage.brs" />
   <interface>
+    <field id="backgroundColor" type="color" alias="rectangle.color" />
   </interface>
   <children>
     <Rectangle id="rectangle" width="1920" height="1080" color="#ECEFF1" translation="[0,0]" />
