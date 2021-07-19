@@ -2,7 +2,6 @@
 <component name="MainScene" extends="Scene">
   <script type="text/brightscript" uri="MainScene.brs" />
   <children>
-    <Rectangle width="1920" height="1080" color="#EF6C00" />
-    <Label id="hwLabel" width="1280" height="720" horizAlign="center" vertAlign="center" text="Hello, Ilya!" font="font:LargeBoldSystemFont" />
+    <MainPage id="mainPage" />
   </children>
 </component>
