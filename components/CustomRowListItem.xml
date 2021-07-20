@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<component name="CustomRowListItem" extends="Group">
+  <script type="text/brightscript" uri="CustomRowListItem.brs" />
+  <interface>
+  </interface>
+  <children>
+    <Rectangle 
+        id="mask" 
+        color="#1BD379" 
+        opacity="0.8" 
+        width="500" 
+        height="200" />
+  </children>
+</component>
