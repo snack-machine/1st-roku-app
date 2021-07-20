@@ -10,10 +10,11 @@
         id="mainRowList" 
         translation="[50,50]" 
         rowItemSize="[[200,200]]"
-        itemSize="[1920,1080]"
+        itemSize="[1920,200]"
         itemSpacing="[0,0]"
         itemComponentName="CustomRowListItem"
         vertFocusAnimationStyle="fixedFocusWrap" 
-        rowFocusAnimationStyle = "fixedFocusWrap" />
+        rowFocusAnimationStyle = "floatingFocus"
+        numRows="99" />
   </children>
 </component>
