@@ -4,7 +4,7 @@ function init()
 
     for x = 1 to 6
         row = mainContentNode.createChild("ContentNode")
-        randomNumber = Rnd(20)
+        randomNumber = Rnd(15) + 5
         for y = 1 to randomNumber
             item = row.createChild("ContentNode")
         end for

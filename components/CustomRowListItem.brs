@@ -29,6 +29,6 @@ end sub
 
 
 function updateLabel()
-  m.label.text = "Row: " + (m.top.rowIndex + 1).toStr() + " Column: " + (m.top.index + 1).toStr()
+  m.label.text = "Row: " + (m.top.rowIndex + 1).toStr() + " Col: " + (m.top.index + 1).toStr()
 end function
 
