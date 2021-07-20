@@ -5,19 +5,15 @@
     <field id="backgroundColor" type="color" alias="rectangle.color" />
   </interface>
   <children>
-<<<<<<< HEAD
     <Rectangle id="rectangle" width="1920" height="1080" color="#ECEFF1" translation="[0,0]" />
     <RowList 
         id="mainRowList" 
         translation="[50,50]" 
-        itemSize="[300,200]"
-        itemSpacing="[50,50]"
-        numRows="10"
+        rowItemSize="[[200,200]]"
+        itemSize="[1920,1080]"
+        itemSpacing="[0,0]"
         itemComponentName="CustomRowListItem"
         vertFocusAnimationStyle="fixedFocusWrap" 
         rowFocusAnimationStyle = "fixedFocusWrap" />
-=======
-    <Rectangle id="rectangle" width="1920" height="1080" translation="[0,0]" />
->>>>>>> main
   </children>
 </component>

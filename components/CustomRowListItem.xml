@@ -2,13 +2,15 @@
 <component name="CustomRowListItem" extends="Group">
   <script type="text/brightscript" uri="CustomRowListItem.brs" />
   <interface>
+    <field id="width" type="integer" onChange="onWidthChanged" />
+    <field id="height" type="integer" onChange="onHeightChanged" />
   </interface>
   <children>
     <Rectangle 
-        id="mask" 
+        id="background" 
         color="#1BD379" 
         opacity="0.8" 
-        width="500" 
-        height="200" />
+        width="150"
+        height="100"/>
   </children>
 </component>
