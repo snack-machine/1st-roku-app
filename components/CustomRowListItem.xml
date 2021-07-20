@@ -4,11 +4,18 @@
   <interface>
     <field id="width" type="integer" onChange="onWidthChanged" />
     <field id="height" type="integer" onChange="onHeightChanged" />
+    <field id="index" type="integer" value="-1" onChange="onIndexChanged" />
+    <field id="rowIndex" type="integer" value="-1" onChange="onRowIndexChanged" />
   </interface>
   <children>
     <Rectangle 
-        id="background" 
-        color="#FFFFFF" 
-        opacity="0.8" />
+      id="background" 
+      color="#FFFFFF" 
+      opacity="0.8" />
+    <Label
+      id="label"
+      color="#06A144"
+      wrap="true"
+      font="font:MediumBoldSystemFont" />
   </children>
 </component>
