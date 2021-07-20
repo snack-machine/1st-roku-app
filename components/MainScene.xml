@@ -2,6 +2,6 @@
 <component name="MainScene" extends="Scene">
   <script type="text/brightscript" uri="MainScene.brs" />
   <children>
-    <MainPage id="mainPage" />
+    <MainPage id="mainPage" backgroundColor="#ECEFF1" />
   </children>
 </component>
