@@ -1,5 +1,5 @@
 function init()
-    rowList = m.top.findNode("mainRowList")
+    m.rowList = m.top.findNode("mainRowList")
     mainContentNode = CreateObject("roSGNode", "ContentNode")
 
     for x = 1 to 6
@@ -10,6 +10,26 @@ function init()
         end for
     end for
 
-    rowList.content = mainContentNode 
-    rowList.setFocus(true)
+    m.rowList.content = mainContentNode 
+    m.rowList.setFocus(true)
+end function 
+
+
+function onKeyEvent(key as string, press as boolean) as boolean
+    if press and key = "back"
+        currentRow = m.rowList.rowItemFocused[0]
+        currentColumn = m.rowList.rowItemFocused[1]
+
+        if currentColumn <> 0
+            m.rowList.jumpToRowItem = [currentRow, 0]  
+            return true
+        else if currentRow <> 0 
+            m.rowList.jumpToRowItem = [0, currentColumn]  
+            return true 
+        else
+            
+        end if
+    end if
+
+    return false
 end function 
