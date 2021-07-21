@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<component name="CustomRowListItem" extends="Group">
+  <script type="text/brightscript" uri="CustomRowListItem.brs" />
+  <interface>
+    <field id="width" type="integer" onChange="onWidthChanged" />
+    <field id="height" type="integer" onChange="onHeightChanged" />
+    <field id="index" type="integer" value="-1" onChange="onIndexChanged" />
+    <field id="rowIndex" type="integer" value="-1" onChange="onRowIndexChanged" />
+  </interface>
+  <children>
+    <Rectangle 
+      id="background" 
+      color="#FFFFFF" 
+      opacity="0.8" />
+    <Label
+      id="label"
+      color="#06A144"
+      wrap="true"
+      horizAlign="center"
+      vertAlign="center"
+      font="font:MediumBoldSystemFont" />
+  </children>
+</component>
