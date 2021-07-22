@@ -5,14 +5,14 @@ end function
 
 
 function onWidthChanged()
-    m.background.width = m.top.width * 0.9
-    m.label.width = m.top.width * 0.9
+    m.background.width = m.top.width
+    m.label.width = m.top.width
 end function
 
 
 function onHeightChanged()
-    m.background.height = m.top.height * 0.9
-    m.label.height = m.top.height * 0.5
+    m.background.height = m.top.height
+    m.label.height = m.top.height
 end function
 
 
@@ -29,6 +29,6 @@ end sub
 
 
 function updateLabel()
-  m.label.text = "Row: " + (m.top.rowIndex + 1).toStr() + " Col: " + (m.top.index + 1).toStr()
+  m.label.text = "Row: " + (m.top.rowIndex + 1).toStr() + chr(10) + "Col: " + (m.top.index + 1).toStr()
 end function
 

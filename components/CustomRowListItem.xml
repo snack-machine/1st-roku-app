@@ -16,6 +16,8 @@
       id="label"
       color="#06A144"
       wrap="true"
+      horizAlign="center"
+      vertAlign="center"
       font="font:MediumBoldSystemFont" />
   </children>
 </component>
