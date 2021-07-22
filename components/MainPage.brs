@@ -40,7 +40,7 @@ sub showExitDialog()
     exitDialog = createObject("roSGNode", "Dialog")
     exitDialog.title = "Leaving the channel"
     exitDialog.message = "Are you sure?"
-    exitDialog.buttons = [ "Exit", "Cancel" ]
+    exitDialog.buttons = ["Exit", "Cancel"]
     exitDialog.observeFieldScoped("buttonSelected", "onButtonSelected")
     m.top.getScene().dialog = exitDialog
 end sub
@@ -57,11 +57,11 @@ end sub
 
 
 sub leaveChannel()
-    ?"leaveChannel"
+    m.top.getScene().closeChannel = true
 end sub
 
 
 sub closeDialog()
-    ?"closeDialog"
+    m.top.getScene().dialog.close = true
 end sub
 
