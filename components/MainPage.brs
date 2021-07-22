@@ -27,9 +27,41 @@ function onKeyEvent(key as string, press as boolean) as boolean
             m.rowList.jumpToRowItem = [0, currentColumn]  
             return true 
         else
-            
+            showExitDialog()
+            return true
         end if
     end if
 
     return false
 end function 
+
+
+sub showExitDialog()
+    exitDialog = createObject("roSGNode", "Dialog")
+    exitDialog.title = "Leaving the channel"
+    exitDialog.message = "Are you sure?"
+    exitDialog.buttons = [ "Exit", "Cancel" ]
+    exitDialog.observeFieldScoped("buttonSelected", "onButtonSelected")
+    m.top.getScene().dialog = exitDialog
+end sub
+
+
+sub onButtonSelected(event as object)
+    buttonSelected = event.getData()
+    if buttonSelected = 0
+        leaveChannel()
+    else if buttonSelected = 1
+        closeDialog()
+    end if
+end sub
+
+
+sub leaveChannel()
+    ?"leaveChannel"
+end sub
+
+
+sub closeDialog()
+    ?"closeDialog"
+end sub
+
