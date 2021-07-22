@@ -6,7 +6,6 @@ sub main()
     scene = screen.createScene("MainScene")
     screen.show()
     scene.observeField("closeChannel", port)
-    scene.setFocus(true)
 
     while true
         msg = wait(0, port)
