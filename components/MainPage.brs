@@ -24,7 +24,7 @@ function onKeyEvent(key as string, press as boolean) as boolean
             m.rowList.jumpToRowItem = [currentRow, 0]  
             return true
         else if currentRow <> 0 
-            m.rowList.jumpToRowItem = [0, currentColumn]  
+            m.rowList.jumpToRowItem = [0, 0]  
             return true 
         else
             showExitDialog()

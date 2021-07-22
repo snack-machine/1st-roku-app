@@ -1,15 +1,15 @@
 
 sub main()
     screen = createObject("roSGScreen")
-    m.port = createObject("roMessagePort")
-    screen.setMessagePort(m.port)
+    port = createObject("roMessagePort")
+    screen.setMessagePort(port)
     scene = screen.createScene("MainScene")
     screen.show()
-    scene.observeField("closeChannel", m.port)
+    scene.observeField("closeChannel", port)
     scene.setFocus(true)
 
     while true
-        msg = wait(0, m.port)
+        msg = wait(0, port)
         msgType = type(msg)
 
         if msgType = "roSGScreenEvent"
