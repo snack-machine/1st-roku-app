@@ -22,7 +22,7 @@
       itemSpacing="[0,30]"
       rowItemSpacing="[[30,0]]"
       itemComponentName="CustomRowListItem"
-      vertFocusAnimationStyle="fixedFocusWrap" 
+      vertFocusAnimationStyle="fixedFocus" 
       rowFocusAnimationStyle="floatingFocus"
       numRows="99" />
   </children>

@@ -1,7 +1,6 @@
 function init()
     initMainMarkupGrid()
     initMainRowList()
-    m.mainMarkupGrid.setFocus(true)
 end function 
 
 
@@ -17,11 +16,6 @@ end sub
 sub addMarkupGridItem(initialText as string)
     item = m.mainMarkupGridContent.createChild("MarkupGridContent")
     item.labelText = initialText
-end sub
-
-
-sub changeFocusedMarkupGridItem()
-
 end sub
 
 
@@ -42,19 +36,29 @@ end sub
 
 function onKeyEvent(key as string, press as boolean) as boolean
     if press
+        currentRowListRow = m.rowList.rowItemFocused[0]
+        currentRowListColumn = m.rowList.rowItemFocused[1]
+        currentMarkupGridItem = m.mainMarkupGrid.itemFocused
         if key = "back"
-            currentRow = m.rowList.rowItemFocused[0]
-            currentColumn = m.rowList.rowItemFocused[1]
-            if currentColumn <> 0
-                m.rowList.jumpToRowItem = [currentRow, 0]  
+            if currentMarkupGridItem = 0
+                showExitDialog()
                 return true
-            else if currentRow <> 0 
+            else if currentRowListColumn <> 0
+                m.rowList.jumpToRowItem = [currentRowListRow, 0]  
+                return true
+            else if currentRowListRow <> 0 
                 m.rowList.jumpToRowItem = [0, 0]  
                 return true 
             else
-                showExitDialog()
+                m.mainMarkupGrid.setFocus(true)
                 return true
             end if
+        else if key = "up"
+            if currentRowListColumn = 0 and currentRowListRow = 0
+                m.mainMarkupGrid.setFocus(true)
+                return true
+            end if
+            return true
         end if
     end if
     return false

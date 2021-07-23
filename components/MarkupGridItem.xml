@@ -3,6 +3,7 @@
   <interface> 
     <field id="width" type="integer" onChange="onWidthChanged" />
     <field id="height" type="integer" onChange="onHeightChanged" />
+    <field id="index" type="integer" value="-1" onChange="onIndexChanged" />
     <field id="itemContent" type="node" onChange="onContentChanged" />
     <field id="itemHasFocus" type="boolean" onChange="onFocusChanged" />
   </interface>
@@ -10,8 +11,7 @@
   <children>
     <Rectangle 
       id="background" 
-      color="#ffffff" 
-      opacity="0.75" />
+      opacity="1" />
     <Label
       id="label"
       horizAlign="center"

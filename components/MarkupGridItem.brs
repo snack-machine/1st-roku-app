@@ -16,6 +16,17 @@ sub onHeightChanged()
 end sub
 
 
+sub onIndexChanged()
+    if m.top.index = -1 
+        return
+    else if m.top.index = 0
+        m.background.color = getCurrentBackgroundColor(true)
+    else 
+        m.background.color = getCurrentBackgroundColor(false)
+    end if
+end sub
+
+
 sub onContentChanged()
     newContent = m.top.itemContent 
     m.label.text = newContent.labelText
@@ -32,7 +43,7 @@ function getCurrentBackgroundColor(state as boolean)
     if state = true
         color = "#1565c0"
     else
-        color = "#455a64"
+        color = "#37474f"
     end if
     return color
 end function
