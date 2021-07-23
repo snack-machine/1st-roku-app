@@ -1,16 +1,43 @@
 function init()
+    initMainMarkupGrid()
+    initMainRowList()
+    m.mainMarkupGrid.setFocus(true)
+end function 
+
+
+sub initMainMarkupGrid()
+    m.mainMarkupGrid = m.top.findNode("mainMarkupGrid")
+    m.mainMarkupGridContent = CreateObject("roSGNode", "ContentNode")
+    addMarkupGridItem("Recent talks")
+    addMarkupGridItem("Browse playlists")
+    m.mainMarkupGrid.content = m.mainMarkupGridContent
+end sub
+
+
+sub addMarkupGridItem(initialText as string)
+    item = m.mainMarkupGridContent.createChild("MarkupGridContent")
+    item.labelText = initialText
+end sub
+
+
+sub changeFocusedMarkupGridItem()
+
+end sub
+
+
+sub initMainRowList()
     m.rowList = m.top.findNode("mainRowList")
-    mainContentNode = CreateObject("roSGNode", "ContentNode")
+    rowListContentNode = CreateObject("roSGNode", "ContentNode")
     for x = 1 to 6
-        row = mainContentNode.createChild("ContentNode")
+        row = rowListContentNode.createChild("ContentNode")
         randomNumber = Rnd(15) + 5
         for y = 1 to randomNumber
             item = row.createChild("ContentNode")
         end for
     end for
-    m.rowList.content = mainContentNode 
+    m.rowList.content = rowListContentNode 
     m.top.observeField("focusedChild", "onFocusChange")
-end function 
+end sub
 
 
 function onKeyEvent(key as string, press as boolean) as boolean

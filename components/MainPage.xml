@@ -6,10 +6,18 @@
   </interface>
   <children>
     <Rectangle id="rectangle" width="1920" height="1080" translation="[0,0]" />
+    <MarkupGrid
+      id="mainMarkupGrid" 
+      translation="[50,70]" 
+      itemComponentName="MarkupGridItem"
+      itemSize="[300,80]" 
+      columnSpacings="[30]"
+      numColumns="2"
+      drawFocusFeedback="true" />
     <RowList 
       id="mainRowList" 
-      translation="[50,50]" 
-      rowItemSize="[[200,200]]"
+      translation="[50,200]" 
+      rowItemSize="[[400,200]]"
       itemSize="[1920,200]"
       itemSpacing="[0,30]"
       rowItemSpacing="[[30,0]]"

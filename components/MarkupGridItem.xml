@@ -1,21 +1,19 @@
 <?xml version="1.0" encoding="utf-8" ?>
-<component name="CustomRowListItem" extends="Group">
-  <script type="text/brightscript" uri="CustomRowListItem.brs" />
-  <interface>
+<component name="MarkupGridItem" extends="Group" >
+  <interface> 
     <field id="width" type="integer" onChange="onWidthChanged" />
     <field id="height" type="integer" onChange="onHeightChanged" />
-    <field id="index" type="integer" value="-1" onChange="onIndexChanged" />
-    <field id="rowIndex" type="integer" value="-1" onChange="onRowIndexChanged" />
+    <field id="itemContent" type="node" onChange="onContentChanged" />
+    <field id="itemHasFocus" type="boolean" onChange="onFocusChanged" />
   </interface>
+  <script type = "text/brightscript" uri="MarkupGridItem.brs" />
   <children>
     <Rectangle 
       id="background" 
-      color="#263238" 
-      opacity="0.8" />
+      color="#ffffff" 
+      opacity="0.75" />
     <Label
       id="label"
-      color="#FFFFFF"
-      wrap="true"
       horizAlign="center"
       vertAlign="center"
       font="font:MediumBoldSystemFont" />
