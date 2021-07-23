@@ -12,6 +12,10 @@
     <Rectangle 
       id="background" 
       opacity="1" />
+    <Poster
+      id="outline" 
+      uri="pkg:/images/outline-bw.9.png"
+      blendColor="#455a64" />
     <Label
       id="label"
       horizAlign="center"
