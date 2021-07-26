@@ -7,9 +7,9 @@
   <children>
     <Rectangle id="rectangle" width="1920" height="1080" translation="[0,0]" />
     <MarkupGrid
-      id="mainMarkupGrid" 
+      id="topNavigationBar" 
       translation="[50,70]" 
-      itemComponentName="MarkupGridItem"
+      itemComponentName="TopNavigationBarItem"
       itemSize="[300,80]" 
       columnSpacings="[30]"
       numColumns="2"
@@ -21,7 +21,7 @@
       itemSize="[1920,200]"
       itemSpacing="[0,30]"
       rowItemSpacing="[[30,0]]"
-      itemComponentName="CustomRowListItem"
+      itemComponentName="MainRowListItem"
       vertFocusAnimationStyle="fixedFocus" 
       rowFocusAnimationStyle="floatingFocus"
       numRows="99" />

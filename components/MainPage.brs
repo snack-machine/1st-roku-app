@@ -5,16 +5,16 @@ end function
 
 
 sub initMainMarkupGrid()
-    m.mainMarkupGrid = m.top.findNode("mainMarkupGrid")
-    m.mainMarkupGridContent = CreateObject("roSGNode", "ContentNode")
+    m.topNavigationBar = m.top.findNode("topNavigationBar")
+    m.topNavigationBarContent = CreateObject("roSGNode", "ContentNode")
     addMarkupGridItem("Recent talks")
     addMarkupGridItem("Browse playlists")
-    m.mainMarkupGrid.content = m.mainMarkupGridContent
+    m.topNavigationBar.content = m.topNavigationBarContent
 end sub
 
 
 sub addMarkupGridItem(initialText as string)
-    item = m.mainMarkupGridContent.createChild("MarkupGridContent")
+    item = m.topNavigationBarContent.createChild("MarkupGridContent")
     item.labelText = initialText
 end sub
 
@@ -38,7 +38,7 @@ function onKeyEvent(key as string, press as boolean) as boolean
     if press
         currentRowListRow = m.rowList.rowItemFocused[0]
         currentRowListColumn = m.rowList.rowItemFocused[1]
-        currentMarkupGridItem = m.mainMarkupGrid.itemFocused
+        currentMarkupGridItem = m.topNavigationBar.itemFocused
         if key = "back"
             if currentMarkupGridItem = 0
                 showExitDialog()
@@ -50,12 +50,12 @@ function onKeyEvent(key as string, press as boolean) as boolean
                 m.rowList.jumpToRowItem = [0, 0]  
                 return true 
             else
-                m.mainMarkupGrid.setFocus(true)
+                m.topNavigationBar.setFocus(true)
                 return true
             end if
         else if key = "up"
             if currentRowListColumn = 0 and currentRowListRow = 0
-                m.mainMarkupGrid.setFocus(true)
+                m.topNavigationBar.setFocus(true)
                 return true
             end if
             return true
