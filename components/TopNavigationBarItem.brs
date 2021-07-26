@@ -32,7 +32,7 @@ end sub
 
 sub onContentChanged()
     newContent = m.top.itemContent 
-    m.label.text = newContent.labelText
+    m.label.text = newContent.title
 end sub
 
 

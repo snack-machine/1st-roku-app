@@ -14,8 +14,8 @@ end sub
 
 
 sub addMarkupGridItem(initialText as string)
-    item = m.topNavigationBarContent.createChild("MarkupGridContent")
-    item.labelText = initialText
+    item = m.topNavigationBarContent.createChild("ContentNode")
+    item.title = initialText
 end sub
 
 
