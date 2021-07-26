@@ -4,10 +4,12 @@ sub addItem(parent as object, initialText as string)
 end sub
 
 
-function getTextWidth(sourceLabel as object, text as string)
+function getTextWidth(item as object)
     label = createObject("roSGNode", "label")
-    label.text = text
-    label.font = sourceLabel.font
-    span = 15
-    return label.boundingRect().width + (span * 2)
+    label.text = item.title
+    label.font = "font:MediumBoldSystemFont" 
+    span = 25
+    labelRectangle = label.boundingRect()
+    newWidth = labelRectangle.width + (span * 2)
+    return newWidth
 end function

@@ -16,7 +16,9 @@ end sub
 
 
 sub adjustWidthOfTopNavigationBarItems()
-    newColumnWidths = [100, 200]
+    item1 = m.topNavigationBar.content.getChild(0)
+    item2 = m.topNavigationBar.content.getChild(1)
+    newColumnWidths = [getTextWidth(item1), getTextWidth(item2)]
     m.topNavigationBar.columnWidths = newColumnWidths
 end sub
 

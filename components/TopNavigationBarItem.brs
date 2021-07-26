@@ -32,7 +32,7 @@ end sub
 
 sub setVisualFocus(state as boolean)
     m.background.color = getCurrentBackgroundColor(state)
-    m.outline.blendColor = getCurrentOutlineColor(state)
+    m.outline.blendColor = "#455a64"
 end sub
 
 
@@ -45,7 +45,17 @@ end sub
 sub onFocusChanged()
     newState = m.top.itemHasFocus
     m.background.color = getCurrentBackgroundColor(newState)
-    m.outline.blendColor = getCurrentOutlineColor(newState)
+    if newState
+        m.outline.visible = false
+    else
+        m.outline.visible = true
+    end if
+end sub
+
+
+sub onFocusPercentChange()
+    newOpacity = m.top.focusPercent
+    m.background.opacity = newOpacity 
 end sub
 
 
@@ -57,14 +67,3 @@ function getCurrentBackgroundColor(state as boolean)
     end if
     return color
 end function
-
-
-function getCurrentOutlineColor(state as boolean)
-    if state = false
-        color = "#455a64"
-    else
-        color = "#37474f"
-    end if
-    return color
-end function
-
