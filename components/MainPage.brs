@@ -1,26 +1,26 @@
 function init()
-    initMainMarkupGrid()
-    initMainRowList()
+    initTopNavigationBar()
+    initTalksRowList()
 end function 
 
 
-sub initMainMarkupGrid()
+sub initTopNavigationBar()
     m.topNavigationBar = m.top.findNode("topNavigationBar")
     m.topNavigationBarContent = CreateObject("roSGNode", "ContentNode")
-    addMarkupGridItem("Recent talks")
-    addMarkupGridItem("Browse playlists")
+    addTopNavigationBarItem("Recent talks")
+    addTopNavigationBarItem("Browse playlists")
     m.topNavigationBar.content = m.topNavigationBarContent
 end sub
 
 
-sub addMarkupGridItem(initialText as string)
+sub addTopNavigationBarItem(initialText as string)
     item = m.topNavigationBarContent.createChild("ContentNode")
     item.title = initialText
 end sub
 
 
-sub initMainRowList()
-    m.rowList = m.top.findNode("mainRowList")
+sub initTalksRowList()
+    m.talksRowList = m.top.findNode("talksRowList")
     rowListContentNode = CreateObject("roSGNode", "ContentNode")
     for x = 1 to 6
         row = rowListContentNode.createChild("ContentNode")
@@ -29,25 +29,25 @@ sub initMainRowList()
             item = row.createChild("ContentNode")
         end for
     end for
-    m.rowList.content = rowListContentNode 
+    m.talksRowList.content = rowListContentNode 
     m.top.observeField("focusedChild", "onFocusChange")
 end sub
 
 
 function onKeyEvent(key as string, press as boolean) as boolean
     if press
-        currentRowListRow = m.rowList.rowItemFocused[0]
-        currentRowListColumn = m.rowList.rowItemFocused[1]
+        currentRowListRow = m.talksRowList.rowItemFocused[0]
+        currentRowListColumn = m.talksRowList.rowItemFocused[1]
         currentMarkupGridItem = m.topNavigationBar.itemFocused
         if key = "back"
             if currentMarkupGridItem = 0
                 showExitDialog()
                 return true
             else if currentRowListColumn <> 0
-                m.rowList.jumpToRowItem = [currentRowListRow, 0]  
+                m.talksRowList.jumpToRowItem = [currentRowListRow, 0]  
                 return true
             else if currentRowListRow <> 0 
-                m.rowList.jumpToRowItem = [0, 0]  
+                m.talksRowList.jumpToRowItem = [0, 0]  
                 return true 
             else
                 m.topNavigationBar.setFocus(true)
@@ -97,6 +97,6 @@ end sub
 
 sub onFocusChange()
     if m.top.hasFocus()
-        m.rowList.setFocus(true)
+        m.talksRowList.setFocus(true)
     end if
 end sub

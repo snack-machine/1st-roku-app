@@ -15,13 +15,13 @@
       numColumns="2"
       drawFocusFeedback="true" />
     <RowList 
-      id="mainRowList" 
+      id="talksRowList" 
       translation="[50,200]" 
       rowItemSize="[[400,200]]"
       itemSize="[1920,200]"
       itemSpacing="[0,30]"
       rowItemSpacing="[[30,0]]"
-      itemComponentName="MainRowListItem"
+      itemComponentName="TalksRowListItem"
       vertFocusAnimationStyle="fixedFocus" 
       rowFocusAnimationStyle="floatingFocus"
       numRows="99" />
