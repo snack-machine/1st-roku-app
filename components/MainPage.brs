@@ -1,6 +1,7 @@
 function init()
     initTopNavigationBar()
     initTalksRowList()
+    m.top.observeField("focusedChild", "onFocusChange")
 end function 
 
 
@@ -8,7 +9,7 @@ sub initTopNavigationBar()
     m.topNavigationBar = m.top.findNode("topNavigationBar")
     m.topNavigationBarContent = CreateObject("roSGNode", "ContentNode")
     addTopNavigationBarItem("Recent talks")
-    addTopNavigationBarItem("Browse playlists")
+    addTopNavigationBarItem("Browse playlists") 
     m.topNavigationBar.content = m.topNavigationBarContent
 end sub
 
@@ -21,32 +22,31 @@ end sub
 
 sub initTalksRowList()
     m.talksRowList = m.top.findNode("talksRowList")
-    rowListContentNode = CreateObject("roSGNode", "ContentNode")
+    talksRowListContentNode = CreateObject("roSGNode", "ContentNode")
     for x = 1 to 6
-        row = rowListContentNode.createChild("ContentNode")
+        row = talksRowListContentNode.createChild("ContentNode")
         randomNumber = Rnd(15) + 5
         for y = 1 to randomNumber
             item = row.createChild("ContentNode")
         end for
     end for
-    m.talksRowList.content = rowListContentNode 
-    m.top.observeField("focusedChild", "onFocusChange")
+    m.talksRowList.content = talksRowListContentNode 
 end sub
 
 
 function onKeyEvent(key as string, press as boolean) as boolean
     if press
-        currentRowListRow = m.talksRowList.rowItemFocused[0]
-        currentRowListColumn = m.talksRowList.rowItemFocused[1]
-        currentMarkupGridItem = m.topNavigationBar.itemFocused
+        currentTalksRowListRow = m.talksRowList.rowItemFocused[0]
+        currentTalksRowListColumn = m.talksRowList.rowItemFocused[1]
+        currentTopNavigationBarItem = m.topNavigationBar.itemFocused
         if key = "back"
-            if currentMarkupGridItem = 0
+            if currentTopNavigationBarItem = 0 and m.topNavigationBar.hasFocus()
                 showExitDialog()
                 return true
-            else if currentRowListColumn <> 0
-                m.talksRowList.jumpToRowItem = [currentRowListRow, 0]  
+            else if currentTalksRowListColumn <> 0
+                m.talksRowList.jumpToRowItem = [currentTalksRowListRow, 0]  
                 return true
-            else if currentRowListRow <> 0 
+            else if currentTalksRowListRow <> 0 
                 m.talksRowList.jumpToRowItem = [0, 0]  
                 return true 
             else
@@ -54,11 +54,16 @@ function onKeyEvent(key as string, press as boolean) as boolean
                 return true
             end if
         else if key = "up"
-            if currentRowListColumn = 0 and currentRowListRow = 0
+            if currentTalksRowListColumn = 0 and currentTalksRowListRow = 0
                 m.topNavigationBar.setFocus(true)
                 return true
             end if
             return true
+        else if key = "down"
+            if currentTopNavigationBarItem = 0
+                m.talksRowList.setFocus(true)
+                return true
+            end if
         end if
     end if
     return false

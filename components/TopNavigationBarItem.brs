@@ -23,10 +23,16 @@ sub onIndexChanged()
     if m.top.index = -1 
         return
     else if m.top.index = 0
-        m.background.color = getCurrentBackgroundColor(true)
+        setVisualFocus(true)
     else 
-        m.background.color = getCurrentBackgroundColor(false)
+        setVisualFocus(false)
     end if
+end sub
+
+
+sub setVisualFocus(state as boolean)
+    m.background.color = getCurrentBackgroundColor(state)
+    m.outline.blendColor = getCurrentOutlineColor(state)
 end sub
 
 
@@ -37,6 +43,7 @@ end sub
 
 
 sub onFocusChanged()
+    if m.top.itemHasVisualFocus = true then return
     newState = m.top.itemHasFocus
     m.background.color = getCurrentBackgroundColor(newState)
     m.outline.blendColor = getCurrentOutlineColor(newState)
