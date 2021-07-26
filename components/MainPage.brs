@@ -11,6 +11,13 @@ sub initTopNavigationBar()
     addItem(m.topNavigationBarContent, "Recent talks")
     addItem(m.topNavigationBarContent, "Browse playlists") 
     m.topNavigationBar.content = m.topNavigationBarContent
+    adjustWidthOfTopNavigationBarItems()
+end sub
+
+
+sub adjustWidthOfTopNavigationBarItems()
+    newColumnWidths = [100, 200]
+    m.topNavigationBar.columnWidths = newColumnWidths
 end sub
 
 

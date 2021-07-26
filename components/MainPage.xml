@@ -11,7 +11,7 @@
       id="topNavigationBar" 
       translation="[50,70]" 
       itemComponentName="TopNavigationBarItem"
-      itemSize="[300,80]" 
+      itemSize="[0,80]" 
       columnSpacings="[30]"
       numColumns="2"
       drawFocusFeedback="true" />
