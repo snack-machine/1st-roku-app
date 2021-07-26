@@ -43,7 +43,6 @@ end sub
 
 
 sub onFocusChanged()
-    if m.top.itemHasVisualFocus = true then return
     newState = m.top.itemHasFocus
     m.background.color = getCurrentBackgroundColor(newState)
     m.outline.blendColor = getCurrentOutlineColor(newState)

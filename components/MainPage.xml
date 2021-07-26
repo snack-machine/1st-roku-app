@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <component name="MainPage" extends="Group">
   <script type="text/brightscript" uri="MainPage.brs" />
+  <script type="text/brightscript" uri="pkg:/source/Utils.brs" />
   <interface>
     <field id="backgroundColor" type="color" alias="rectangle.color" />
   </interface>

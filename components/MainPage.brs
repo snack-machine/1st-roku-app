@@ -8,15 +8,9 @@ end function
 sub initTopNavigationBar()
     m.topNavigationBar = m.top.findNode("topNavigationBar")
     m.topNavigationBarContent = CreateObject("roSGNode", "ContentNode")
-    addTopNavigationBarItem("Recent talks")
-    addTopNavigationBarItem("Browse playlists") 
+    addItem(m.topNavigationBarContent, "Recent talks")
+    addItem(m.topNavigationBarContent, "Browse playlists") 
     m.topNavigationBar.content = m.topNavigationBarContent
-end sub
-
-
-sub addTopNavigationBarItem(initialText as string)
-    item = m.topNavigationBarContent.createChild("ContentNode")
-    item.title = initialText
 end sub
 
 
