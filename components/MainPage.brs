@@ -53,6 +53,8 @@ function onKeyEvent(key as string, press as boolean) as boolean
                 m.talksRowList.jumpToRowItem = [0, 0]  
                 return true 
             else
+                firstItem = m.topNavigationBar.content.getChild(0)
+                firstItem.isVisualFocused = false
                 m.topNavigationBar.setFocus(true)
                 return true
             end if
