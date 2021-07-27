@@ -31,9 +31,22 @@ sub onIndexChanged()
 end sub
 
 
+sub onGridFocusChanged()
+    currentGridFocus = m.top.gridHasFocus
+    if currentGridFocus = false and m.top.index = 0
+        setVisualFocus(true)
+    end if
+end sub
+
+
 sub setVisualFocus(state as boolean)
     m.background.color = getCurrentBackgroundColor(state)
     m.outline.blendColor = "#455a64"
+    if state
+        m.outline.visible = false
+    else
+        m.outline.visible = true
+    end if
 end sub
 
 
@@ -45,7 +58,6 @@ end sub
 
 
 sub onFocusChanged()
-    if m.visualFocus = true then return
     newState = m.top.itemHasFocus
     m.background.color = getCurrentBackgroundColor(newState)
     if newState

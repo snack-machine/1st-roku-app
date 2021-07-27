@@ -4,6 +4,7 @@
     <field id="width" type="integer" onChange="onWidthChanged" />
     <field id="height" type="integer" onChange="onHeightChanged" />
     <field id="index" type="integer" value="-1" onChange="onIndexChanged" />
+    <field id="gridHasFocus" type="boolean" onChange="onGridFocusChanged" />
     <field id="itemContent" type="node" onChange="onContentChanged" />
     <field id="focusPercent" type="boolean" onChange="onFocusPercentChange" />
     <field id="itemHasFocus" type="boolean" onChange="onFocusChanged" />
