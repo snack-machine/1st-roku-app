@@ -58,12 +58,16 @@ function onKeyEvent(key as string, press as boolean) as boolean
             end if
         else if key = "up"
             if currentTalksRowListColumn = 0 and currentTalksRowListRow = 0
+                firstItem = m.topNavigationBar.content.getChild(0)
+                firstItem.isVisualFocused = false
                 m.topNavigationBar.setFocus(true)
                 return true
             end if
             return true
         else if key = "down"
             if currentTopNavigationBarItem = 0
+                firstItem = m.topNavigationBar.content.getChild(0)
+                firstItem.isVisualFocused = true
                 m.talksRowList.setFocus(true)
                 return true
             end if

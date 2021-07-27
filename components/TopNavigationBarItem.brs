@@ -2,6 +2,7 @@ sub init()
     m.background = m.top.findNode("background")
     m.label = m.top.findNode("label")
     m.outline = m.top.findNode("outline")
+    m.visualFocus = false
 end sub
 
 
@@ -37,12 +38,14 @@ end sub
 
 
 sub onContentChanged()
-    newContent = m.top.itemContent 
+    newContent = m.top.itemContent
     m.label.text = newContent.title
+    m.visualFocus = newContent.isVisualFocused 
 end sub
 
 
 sub onFocusChanged()
+    if m.visualFocus = true then return
     newState = m.top.itemHasFocus
     m.background.color = getCurrentBackgroundColor(newState)
     if newState
