@@ -34,6 +34,11 @@ end sub
 sub setVisualFocus(state as boolean)
     m.background.color = getCurrentBackgroundColor(state)
     m.outline.blendColor = "#455a64"
+    if state
+        m.outline.visible = false
+    else
+        m.outline.visible = true
+    end if
 end sub
 
 
