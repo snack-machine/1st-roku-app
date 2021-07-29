@@ -1,6 +1,6 @@
 function init()
     initTopNavigationBar()
-    initTalksRowList()
+    m.talksRowList = m.top.findNode("talksRowList")
     m.top.observeField("focusedChild", "onFocusChange")
     initLoadRecentTalksTask()
 end function 
@@ -24,20 +24,6 @@ sub adjustWidthOfTopNavigationBarItems()
 end sub
 
 
-sub initTalksRowList()
-    m.talksRowList = m.top.findNode("talksRowList")
-    talksRowListContentNode = CreateObject("roSGNode", "ContentNode")
-    for x = 1 to 6
-        row = talksRowListContentNode.createChild("ContentNode")
-        randomNumber = Rnd(15) + 5
-        for y = 1 to randomNumber
-            item = row.createChild("ContentNode")
-        end for
-    end for
-    m.talksRowList.content = talksRowListContentNode 
-end sub
-
-
 sub initLoadRecentTalksTask()
     m.loadRecentTalksTask = CreateObject("roSGNode", "LoadRecentTalksTask")
     m.loadRecentTalksTask.observeField("result", "onLoadRecentTalksTaskResult")
@@ -46,7 +32,16 @@ end sub
 
 
 sub onLoadRecentTalksTaskResult(newContent as object)
-
+    data = newContent.getData()
+    talksRowListContentNode = CreateObject("roSGNode", "ContentNode")
+    numItems = data.getChildCount()
+    for i = 0 to numItems - 1
+        row = talksRowListContentNode.createChild("ContentNode")
+        item = row.createChild("ContentNode")
+        item.title = data.getChild(i).title
+        item.FHDPosterUrl = data.getChild(i).FHDPosterUrl
+    end for
+    m.talksRowList.content = talksRowListContentNode
 end sub
 
 

@@ -4,20 +4,21 @@
   <interface>
     <field id="width" type="integer" onChange="onWidthChanged" />
     <field id="height" type="integer" onChange="onHeightChanged" />
-    <field id="index" type="integer" value="-1" onChange="onIndexChanged" />
-    <field id="rowIndex" type="integer" value="-1" onChange="onRowIndexChanged" />
+    <field id="itemContent" type="node" onChange="onContentChanged" />
   </interface>
   <children>
     <Rectangle 
       id="background" 
       color="#263238" 
       opacity="0.8" />
+    <Poster
+      id="thumbnail" />
     <Label
       id="label"
       color="#FFFFFF"
       wrap="true"
-      horizAlign="center"
-      vertAlign="center"
-      font="font:MediumBoldSystemFont" />
+      horizAlign="left"
+      vertAlign="down"
+      font="font:SmallestSystemFont" />
   </children>
 </component>

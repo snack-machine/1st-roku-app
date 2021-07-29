@@ -29,6 +29,8 @@ function parseRecentTalks(response as string)
     for each item in json.talks
         newTalk = result.createChild("ContentNode")
         talkData = item.talk
+        newTalk.title = talkData.name
+        newTalk.FHDPosterUrl = talkData.photo_urls[2].url
         newTalk.update(talkData, true)
     end for
     return result
