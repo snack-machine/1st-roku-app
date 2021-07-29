@@ -2,6 +2,7 @@ function init()
     initTopNavigationBar()
     initTalksRowList()
     m.top.observeField("focusedChild", "onFocusChange")
+    initLoadRecentTalksTask()
 end function 
 
 
@@ -34,6 +35,18 @@ sub initTalksRowList()
         end for
     end for
     m.talksRowList.content = talksRowListContentNode 
+end sub
+
+
+sub initLoadRecentTalksTask()
+    m.loadRecentTalksTask = CreateObject("roSGNode", "LoadRecentTalksTask")
+    m.loadRecentTalksTask.observeField("result", "onLoadRecentTalksTaskResult")
+    m.loadRecentTalksTask.control = "run"
+end sub
+
+
+sub onLoadRecentTalksTaskResult(newContent as object)
+
 end sub
 
 
