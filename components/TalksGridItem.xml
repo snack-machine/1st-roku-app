@@ -15,10 +15,11 @@
       id="thumbnail" />
     <Label
       id="label"
+      translation="[0,200]"
       color="#FFFFFF"
       wrap="true"
       horizAlign="left"
-      vertAlign="down"
+      vertAlign="top"
       font="font:SmallestSystemFont" />
   </children>
 </component>

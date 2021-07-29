@@ -18,7 +18,7 @@
     <MarkupGrid 
       id="talksGrid" 
       translation="[80,200]" 
-      itemSize="[400,200]"
+      itemSize="[400,400]"
       itemSpacing="[0,50]"
       columnSpacings="[50,50]"
       numColumns="3"

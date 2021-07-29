@@ -13,9 +13,11 @@ end function
 
 
 function onHeightChanged()
-    m.background.height = m.top.height
-    m.thumbnail.height = m.top.height
-    m.label.height = m.top.height
+    m.background.height = m.top.height * 0.5
+    m.thumbnail.height = m.background.height
+    m.label.height = m.top.height * 0.5
+    span = 10
+    m.label.translation = [0, m.thumbnail.height + span]
 end function
 
 
