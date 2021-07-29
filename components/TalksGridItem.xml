@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8" ?>
-<component name="TalksRowListItem" extends="Group">
-  <script type="text/brightscript" uri="TalksRowListItem.brs" />
+<component name="TalksGridItem" extends="Group">
+  <script type="text/brightscript" uri="TalksGridItem.brs" />
   <interface>
     <field id="width" type="integer" onChange="onWidthChanged" />
     <field id="height" type="integer" onChange="onHeightChanged" />

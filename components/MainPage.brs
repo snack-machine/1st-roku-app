@@ -1,6 +1,6 @@
 function init()
     initTopNavigationBar()
-    m.talksRowList = m.top.findNode("talksRowList")
+    m.talksGrid = m.top.findNode("talksGrid")
     m.top.observeField("focusedChild", "onFocusChange")
     initLoadRecentTalksTask()
 end function 
@@ -32,33 +32,25 @@ end sub
 
 
 sub onLoadRecentTalksTaskResult(newContent as object)
-    data = newContent.getData()
-    talksRowListContentNode = CreateObject("roSGNode", "ContentNode")
-    numItems = data.getChildCount()
-    for i = 0 to numItems - 1
-        row = talksRowListContentNode.createChild("ContentNode")
-        item = row.createChild("ContentNode")
-        item.title = data.getChild(i).title
-        item.FHDPosterUrl = data.getChild(i).FHDPosterUrl
-    end for
-    m.talksRowList.content = talksRowListContentNode
+    m.talksGrid.content = newContent.getData()
 end sub
 
 
 function onKeyEvent(key as string, press as boolean) as boolean
     if press
-        currentTalksRowListRow = m.talksRowList.rowItemFocused[0]
-        currentTalksRowListColumn = m.talksRowList.rowItemFocused[1]
+        currentTalksGridRow = m.talksGrid.itemFocused \ m.talksGrid.numColumns    
+        currentTalksGridColumn = m.talksGrid.itemFocused mod m.talksGrid.numColumns 
         currentTopNavigationBarItem = m.topNavigationBar.itemFocused
+
         if key = "back"
             if currentTopNavigationBarItem = 0 and m.topNavigationBar.hasFocus()
                 showExitDialog()
                 return true
-            else if currentTalksRowListColumn <> 0
-                m.talksRowList.jumpToRowItem = [currentTalksRowListRow, 0]  
+            else if currentTalksGridColumn <> 0
+                m.talksGrid.jumpToItem = currentTalksGridRow * m.talksGrid.numColumns
                 return true
-            else if currentTalksRowListRow <> 0 
-                m.talksRowList.jumpToRowItem = [0, 0]  
+            else if currentTalksGridRow <> 0 
+                m.talksGrid.jumpToItem = 0  
                 return true 
             else
                 firstItem = m.topNavigationBar.content.getChild(0)
@@ -67,7 +59,7 @@ function onKeyEvent(key as string, press as boolean) as boolean
                 return true
             end if
         else if key = "up"
-            if currentTalksRowListColumn = 0 and currentTalksRowListRow = 0
+            if currentTalksGridColumn = 0 and currentTalksGridRow = 0
                 firstItem = m.topNavigationBar.content.getChild(0)
                 firstItem.isVisualFocused = false
                 m.topNavigationBar.setFocus(true)
@@ -78,7 +70,7 @@ function onKeyEvent(key as string, press as boolean) as boolean
             if currentTopNavigationBarItem = 0
                 firstItem = m.topNavigationBar.content.getChild(0)
                 firstItem.isVisualFocused = true
-                m.talksRowList.setFocus(true)
+                m.talksGrid.setFocus(true)
                 return true
             end if
         end if
@@ -119,6 +111,6 @@ end sub
 
 sub onFocusChange()
     if m.top.hasFocus()
-        m.talksRowList.setFocus(true)
+        m.talksGrid.setFocus(true)
     end if
 end sub

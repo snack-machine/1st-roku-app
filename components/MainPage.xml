@@ -9,22 +9,21 @@
     <Rectangle id="rectangle" width="1920" height="1080" translation="[0,0]" />
     <MarkupGrid
       id="topNavigationBar" 
-      translation="[50,70]" 
+      translation="[80,70]" 
       itemComponentName="TopNavigationBarItem"
       itemSize="[0,80]" 
       columnSpacings="[30]"
       numColumns="2"
       drawFocusFeedback="true" />
-    <RowList 
-      id="talksRowList" 
-      translation="[50,200]" 
-      rowItemSize="[[800,400]]"
-      itemSize="[1920,400]"
-      itemSpacing="[0,80]"
-      rowItemSpacing="[[80,0]]"
-      itemComponentName="TalksRowListItem"
-      vertFocusAnimationStyle="fixedFocus" 
-      rowFocusAnimationStyle="floatingFocus"
-      numRows="99" />
+    <MarkupGrid 
+      id="talksGrid" 
+      translation="[80,200]" 
+      itemSize="[400,200]"
+      itemSpacing="[0,50]"
+      columnSpacings="[50,50]"
+      numColumns="3"
+      numRows="99"
+      itemComponentName="TalksGridItem"
+      vertFocusAnimationStyle="fixedFocus" />
   </children>
 </component>
