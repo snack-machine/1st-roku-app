@@ -2,6 +2,8 @@ sub init()
     m.background = m.top.findNode("background")
     m.label = m.top.findNode("label")
     m.outline = m.top.findNode("outline")
+    m.background.color = "#1565c0"
+    m.outline.blendColor = "#455a64"
     m.visualFocus = false
 end sub
 
@@ -32,11 +34,11 @@ end sub
 
 
 sub setVisualFocus(state as boolean)
-    m.background.color = getCurrentBackgroundColor(state)
-    m.outline.blendColor = "#455a64"
     if state
+        m.background.opacity = "1.0"
         m.outline.visible = false
     else
+        m.background.opacity = "0.0"
         m.outline.visible = true
     end if
 end sub
@@ -52,10 +54,11 @@ end sub
 sub onFocusChanged()
     if m.visualFocus = true then return
     newState = m.top.itemHasFocus
-    m.background.color = getCurrentBackgroundColor(newState)
     if newState
+        m.background.opacity = "1.0"
         m.outline.visible = false
     else
+        m.background.opacity = "0.0"
         m.outline.visible = true
     end if
 end sub
@@ -65,13 +68,3 @@ sub onFocusPercentChange()
     newOpacity = m.top.focusPercent
     m.background.opacity = newOpacity 
 end sub
-
-
-function getCurrentBackgroundColor(state as boolean)
-    if state = true
-        color = "#1565c0"
-    else
-        color = "#37474f"
-    end if
-    return color
-end function

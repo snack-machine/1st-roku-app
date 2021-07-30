@@ -37,45 +37,43 @@ end sub
 
 
 function onKeyEvent(key as string, press as boolean) as boolean
-    if press
-        currentTalksGridRow = m.talksGrid.itemFocused \ m.talksGrid.numColumns    
-        currentTalksGridColumn = m.talksGrid.itemFocused mod m.talksGrid.numColumns 
-        currentTopNavigationBarItem = m.topNavigationBar.itemFocused
+    currentTalksGridRow = m.talksGrid.itemFocused \ m.talksGrid.numColumns    
+    currentTalksGridColumn = m.talksGrid.itemFocused mod m.talksGrid.numColumns 
+    currentTopNavigationBarItem = m.topNavigationBar.itemFocused
 
-        if key = "back"
-            if currentTopNavigationBarItem = 0 and m.topNavigationBar.hasFocus()
-                showExitDialog()
-                return true
-            else if currentTalksGridColumn <> 0
+    if m.topNavigationBar.hasFocus()
+        if press and key = "back" and currentTopNavigationBarItem = 0
+            showExitDialog()
+            return true
+        else if press and key = "down" and currentTopNavigationBarItem = 0
+            firstItem = m.topNavigationBar.content.getChild(0)
+            firstItem.isVisualFocused = true
+            m.talksGrid.setFocus(true)
+            return true
+        end if
+
+    else if m.talksGrid.hasFocus()
+        if press and key = "back"
+            if currentTalksGridColumn <> 0
                 m.talksGrid.jumpToItem = currentTalksGridRow * m.talksGrid.numColumns
                 return true
             else if currentTalksGridRow <> 0 
                 m.talksGrid.jumpToItem = 0  
                 return true 
-            else
+            else if currentTalksGridColumn = 0 and currentTalksGridRow = 0
                 firstItem = m.topNavigationBar.content.getChild(0)
                 firstItem.isVisualFocused = false
                 m.topNavigationBar.setFocus(true)
                 return true
             end if
-        else if key = "up"
-            if currentTalksGridColumn = 0 and currentTalksGridRow = 0
-                firstItem = m.topNavigationBar.content.getChild(0)
-                firstItem.isVisualFocused = false
-                m.topNavigationBar.setFocus(true)
-                return true
-            end if
+        else if press and key = "up" and currentTalksGridColumn = 0 and currentTalksGridRow = 0
+            firstItem = m.topNavigationBar.content.getChild(0)
+            firstItem.isVisualFocused = false
+            m.topNavigationBar.setFocus(true)
             return true
-        else if key = "down"
-            if currentTopNavigationBarItem = 0
-                firstItem = m.topNavigationBar.content.getChild(0)
-                firstItem.isVisualFocused = true
-                m.talksGrid.setFocus(true)
-                return true
-            end if
         end if
     end if
-    return false
+return false
 end function 
 
 
@@ -83,7 +81,7 @@ sub showExitDialog()
     exitDialog = createObject("roSGNode", "Dialog")
     exitDialog.title = "Leaving the channel"
     exitDialog.message = "Are you sure?"
-    exitDialog.buttons = ["Exit", "Cancel"]
+    exitDialog.buttons = ["Cancel", "Exit"]
     exitDialog.observeFieldScoped("buttonSelected", "onButtonSelected")
     m.top.getScene().dialog = exitDialog
 end sub
@@ -91,9 +89,9 @@ end sub
 
 sub onButtonSelected(event as object)
     buttonSelected = event.getData()
-    if buttonSelected = 0
+    if buttonSelected = 1
         leaveChannel()
-    else if buttonSelected = 1
+    else if buttonSelected = 0
         closeDialog()
     end if
 end sub
