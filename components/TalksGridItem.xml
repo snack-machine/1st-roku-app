@@ -15,8 +15,8 @@
       id="thumbnail" />
     <Label
       id="label"
-      translation="[0,200]"
       color="#FFFFFF"
+      height="40"
       wrap="true"
       horizAlign="left"
       vertAlign="top"

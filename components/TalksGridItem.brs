@@ -13,9 +13,10 @@ end function
 
 
 function onHeightChanged()
-    m.background.height = m.top.height * 0.5
-    m.thumbnail.height = m.background.height
-    m.label.height = m.top.height * 0.5
+    ' 0.75 is the factor for the image height to get a 4 to 3 ratio
+    coeffForRatio4To3 = 0.75
+    m.background.height = m.background.width * coeffForRatio4To3
+    m.thumbnail.height = m.background.width * coeffForRatio4To3
     span = 10
     m.label.translation = [0, m.thumbnail.height + span]
 end function

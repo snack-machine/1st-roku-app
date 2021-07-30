@@ -9,7 +9,7 @@
     <Rectangle id="rectangle" width="1920" height="1080" translation="[0,0]" />
     <MarkupGrid
       id="topNavigationBar" 
-      translation="[80,70]" 
+      translation="[85,70]" 
       itemComponentName="TopNavigationBarItem"
       itemSize="[0,80]" 
       columnSpacings="[30]"
@@ -17,11 +17,11 @@
       drawFocusFeedback="true" />
     <MarkupGrid 
       id="talksGrid" 
-      translation="[80,200]" 
-      itemSize="[400,400]"
+      translation="[85,200]" 
+      itemSize="[400,340]"
       itemSpacing="[0,50]"
-      columnSpacings="[50,50]"
-      numColumns="3"
+      columnSpacings="[50,50,50]"
+      numColumns="4"
       numRows="99"
       itemComponentName="TalksGridItem"
       vertFocusAnimationStyle="fixedFocus" />
